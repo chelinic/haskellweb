@@ -1,0 +1,10 @@
+/static StaticR Static appStatic
+
+/favicon.ico FaviconR GET
+/robots.txt RobotsR GET
+
+    /produto/inserir            	 ProdutoR    POST
+	/protudo/apagar/#ProdutoId  	 ProdutoDelR DELETE
+	/produto/buscar/#ProdutoId  	 BuscaProdR  GET
+	/produto/alterar/#ProdutoId 	 AlteraProdR PUT
+	/produto/alterar/nome/#ProdutoId AlteraNomeR PATCH

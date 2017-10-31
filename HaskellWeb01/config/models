@@ -1,0 +1,11 @@
+Produto json
+	nome     Text
+	preco    Double
+	estoque  Int
+	deriving Show
+	
+data Produto = Produto{
+		produtoNome :: Text,
+		produtoPreco :: Double,
+		produtoEstoque :: Int,
+		} deriving Show
