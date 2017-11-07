@@ -8,6 +8,9 @@
 	/pag2								Pag2R		 GET
 	/pag3								Pag3R		 GET
 	/add/#Int/#Int						AddR		 GET
+	/tail/#Text							TailR   	 GET
+	/listar								ListR		 GET
+	/exemplo							ExemploR	 GET
 
     /produto/inserir            	    ProdutoR      POST
 	/protudo/apagar/#ProdutoId  	    ProdutoDelR   DELETE
