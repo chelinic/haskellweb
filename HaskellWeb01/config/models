@@ -1,11 +1,21 @@
 Produto json
-	nome     Text
-	preco    Double
-	estoque  Int
-	deriving Show
+	nome      Text
+	preco     Double
+	estoque   Int
+	deriving  Show
+
+Compra json
+	cliid	  ClienteId
+	proid	  ProdutoId
+	comprado  Int
 	
-data Produto = Produto{
-		produtoNome :: Text,
-		produtoPreco :: Double,
-		produtoEstoque :: Int,
-		} deriving Show
+
+Cliente json
+	nome	    Text
+	cpf 	    Text
+	email	    Text
+	UniqueEmail email
+	
+
+
+	

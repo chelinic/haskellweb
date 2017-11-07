@@ -3,7 +3,7 @@
 {-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE TypeFamilies #-}
-module Handler.Home where
+module Handler.Produto where
 
 import Import
 import Network.HTTP.Types.Status
@@ -47,9 +47,16 @@ putAlteraProdR pid = do
 			runDB $ replace pid novoProd
 			sendStatusJSON noContent204 (object ["resp" .=("Updated" ++ show (fromSqlKey pid))])
 	
-patchAlteraNomeR :: ProdutoId ->Handler Text
+patchAlteraNomeR :: ProdutoId -> Handler Text
 patchAlteraNomeR pid = do
 			_ <- runDB $ get404 pid		
 			novoNome <- requireJsonBody :: Handler Produto
 			runBD $ update pid [ProdutoNome =. (nome novoNome)]
 			sendStatusJSON noContent204 (object ["resp" .=("Updated" ++ show (fromSqlKey pid))])
+			
+getMenorEstoqueR :: Int -> Handler TypedContent
+getMenorEstoqueR = do
+		estoqs <- runDB $ selectList [Produtoestoque <=. estoque] [Asc ProdutoNome]
+		sendStatusJSON ok200 (object ["resp" .= toJSON estoqs])
+		
+	
